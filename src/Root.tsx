@@ -1,22 +1,12 @@
-import { AbsoluteFill, Composition } from "remotion";
-import { C, FONT, FPS, H, W, brand } from "./brand";
-
-const Placeholder: React.FC = () => (
-  <AbsoluteFill
-    style={{
-      background: C.bg,
-      color: C.ink,
-      fontFamily: FONT.display,
-      fontSize: 120,
-      fontWeight: 800,
-      justifyContent: "center",
-      alignItems: "center",
-    }}
-  >
-    {brand.channel.name}
-  </AbsoluteFill>
-);
+import { Folder, Still } from "remotion";
+import { Avatar, Banner, BrandSheet } from "./brand/BrandStills";
 
 export const RemotionRoot: React.FC = () => (
-  <Composition id="Placeholder" component={Placeholder} width={W} height={H} fps={FPS} durationInFrames={FPS} />
+  <>
+    <Folder name="Brand">
+      <Still id="BrandSheet" component={BrandSheet} width={2400} height={1500} />
+      <Still id="Avatar" component={Avatar} width={800} height={800} />
+      <Still id="Banner" component={Banner} width={2560} height={1440} />
+    </Folder>
+  </>
 );

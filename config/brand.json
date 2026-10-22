@@ -62,7 +62,7 @@
   "outro": {
     "enabled": true,
     "min_duration_sec": 4.0,
-    "vo": "Thấy ko khó đúng ko? Theo dõi English Ko Khó để mỗi ngày học thêm một gốc từ nhé!",
+    "vo": "Thấy không khó đúng không? Theo dõi English Ko Khó để mỗi ngày học thêm một gốc từ nhé!",
     "title": "Theo dõi để học tiếp!",
     "subtitle": "Mỗi ngày 1 gốc từ · tiếng Anh ko khó",
     "sfx": "sfx/ding.wav"
