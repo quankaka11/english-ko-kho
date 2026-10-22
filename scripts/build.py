@@ -44,8 +44,8 @@ def final_loudnorm(src, dst, spec: str) -> None:
     )
 
 
-def qa(path, brand: dict) -> list[str]:
-    """Kiểm thông số xuất bản (Technology Plan mục 6)."""
+def qa(path, brand: dict, preview: bool = False) -> list[str]:
+    """Kiểm thông số xuất bản (Technology Plan mục 6). Bản preview bỏ qua độ phân giải và loudness."""
     info = json.loads(subprocess.run(
         ["ffprobe", "-v", "error", "-show_streams", "-show_format", "-of", "json", str(path)],
         capture_output=True, text=True, check=True,
@@ -58,6 +58,8 @@ def qa(path, brand: dict) -> list[str]:
     lufs = re.findall(r"I:\s+(-?[\d.]+) LUFS", loud)
     lufs_v = float(lufs[-1]) if lufs else None
     W, H, FPS = brand["video"]["width"], brand["video"]["height"], brand["video"]["fps"]
+    if preview:
+        W, H = W // 2, H // 2
 
     checks = [
         (f"{v['width']}x{v['height']}", (v["width"], v["height"]) == (W, H), f"cần {W}x{H}"),
@@ -66,9 +68,10 @@ def qa(path, brand: dict) -> list[str]:
         (f"audio {a['codec_name'] if a else 'KHÔNG CÓ'}", bool(a) and a["codec_name"] == "aac", "cần aac"),
         (f"thời lượng {dur:.1f}s", 15 <= dur <= 180, "Shorts tối đa 3 phút"),
         (f"thời lượng mục tiêu 60–90s", 60 <= dur <= 90, "ngoài khoảng 60–90s của Content Plan (chỉ cảnh báo)"),
-        (f"loudness {lufs_v} LUFS", lufs_v is not None and -15.5 <= lufs_v <= -12.5, "mục tiêu -14 LUFS"),
     ]
-    lines = []
+    if not preview:  # preview không qua bước chuẩn hoá loudness
+        checks.append((f"loudness {lufs_v} LUFS", lufs_v is not None and -15.5 <= lufs_v <= -12.5, "mục tiêu -14 LUFS"))
+    lines = ["(bản PREVIEW: nửa độ phân giải, chưa chuẩn hoá loudness – không dùng để đăng)"] if preview else []
     for label, ok, hint in checks:
         lines.append(f"{'✓' if ok else '!'} {label}" + ("" if ok else f"  ({hint})"))
     return lines
@@ -118,7 +121,7 @@ def main() -> None:
         npx("remotion", "still", "Cover", str(out / "cover.png"), f"--props={render_props}", "--log=error")
 
         step("6/6 QA")
-        report = qa(final, brand)
+        report = qa(final, brand, preview=args.preview)
         (out / "qa.txt").write_text("\n".join(report) + "\n", encoding="utf-8")
         for line in report:
             print("  " + line)
