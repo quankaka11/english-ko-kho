@@ -1,0 +1,186 @@
+{
+  "$schema": "../../config/episode.schema.json",
+  "id": "001-spect",
+  "episode": 1,
+  "format": "root_family",
+  "status": "draft",
+  "title_vi": "Biết gốc SPECT, hiểu luôn 8 từ tiếng Anh",
+  "hook": {
+    "vo": "Có một mảnh nhỏ nằm trong cả tám từ này. Biết nó, bạn hiểu luôn cả tám.",
+    "on_screen": "1 gốc = 8 từ mới"
+  },
+  "root": {
+    "text": "SPECT",
+    "variants": ["spect", "spic"],
+    "origin": "Latin specere",
+    "meaning_vi": "nhìn",
+    "emoji": "👀",
+    "vo": "[en:spect] đến từ tiếng La tinh, nghĩa là nhìn."
+  },
+  "words": [
+    {
+      "word": "inspect",
+      "parts": [
+        { "text": "in", "type": "prefix", "meaning_vi": "vào trong" },
+        { "text": "spect", "type": "root" }
+      ],
+      "ipa": "/ɪnˈspekt/",
+      "pos": "v.",
+      "meaning_vi": "kiểm tra kỹ",
+      "vo": "IN là vào trong. Nhìn vào bên trong, tức là kiểm tra kỹ.",
+      "example_en": "The officer inspected every bag.",
+      "example_vi": "Viên cảnh sát kiểm tra kỹ từng chiếc túi.",
+      "emoji": "🔍",
+      "mnemonic": false,
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "respect",
+      "parts": [
+        { "text": "re", "type": "prefix", "meaning_vi": "lại" },
+        { "text": "spect", "type": "root" }
+      ],
+      "ipa": "/rɪˈspekt/",
+      "pos": "n./v.",
+      "meaning_vi": "tôn trọng",
+      "vo": "RE là lại. Nhìn lại, để tâm tới một người, tức là tôn trọng họ.",
+      "example_en": "I respect your honesty.",
+      "example_vi": "Mình tôn trọng sự thẳng thắn của bạn.",
+      "emoji": "🙇",
+      "mnemonic": false,
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "spectator",
+      "parts": [
+        { "text": "spect", "type": "root" },
+        { "text": "ator", "type": "suffix", "meaning_vi": "người" }
+      ],
+      "ipa": "/ˈspekteɪtər/",
+      "pos": "n.",
+      "meaning_vi": "khán giả",
+      "vo": "Thêm đuôi [en:ator] là người làm việc đó. Người ngồi nhìn, chính là khán giả.",
+      "example_en": "The spectators cheered loudly.",
+      "example_vi": "Khán giả reo hò vang dội.",
+      "emoji": "🏟️",
+      "mnemonic": false,
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "prospect",
+      "parts": [
+        { "text": "pro", "type": "prefix", "meaning_vi": "phía trước" },
+        { "text": "spect", "type": "root" }
+      ],
+      "ipa": "/ˈprɑːspekt/",
+      "pos": "n.",
+      "meaning_vi": "triển vọng",
+      "vo": "[en:pro] là phía trước. Nhìn về phía trước, ta thấy triển vọng.",
+      "example_en": "This job has good prospects.",
+      "example_vi": "Công việc này có triển vọng tốt.",
+      "emoji": "🌅",
+      "mnemonic": false,
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "retrospect",
+      "parts": [
+        { "text": "retro", "type": "prefix", "meaning_vi": "phía sau" },
+        { "text": "spect", "type": "root" }
+      ],
+      "ipa": "/ˈretrəspekt/",
+      "pos": "n.",
+      "meaning_vi": "sự nhìn lại",
+      "vo": "[en:retro] là phía sau. Nhìn về phía sau, tức là nhìn lại chuyện đã qua.",
+      "example_en": "In retrospect, it was a good choice.",
+      "example_vi": "Giờ nhìn lại, đó là một lựa chọn đúng.",
+      "emoji": "⏪",
+      "mnemonic": false,
+      "note_vi": "Hay gặp nhất trong cụm \"in retrospect\"",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "suspect",
+      "parts": [
+        { "text": "su", "type": "prefix", "meaning_vi": "từ dưới" },
+        { "text": "spect", "type": "root" }
+      ],
+      "ipa": "/səˈspekt/",
+      "pos": "v./n.",
+      "meaning_vi": "nghi ngờ; nghi phạm",
+      "vo": "SU là từ bên dưới. Lén nhìn từ dưới lên, tức là nghi ngờ. Chú ý, danh từ nghi phạm thì nhấn âm đầu.",
+      "example_en": "The police suspect him of lying.",
+      "example_vi": "Cảnh sát nghi anh ta nói dối.",
+      "emoji": "🕵️",
+      "mnemonic": true,
+      "note_vi": "Danh từ đọc /ˈsʌspekt/ – nhấn âm đầu",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "perspective",
+      "parts": [
+        { "text": "per", "type": "prefix", "meaning_vi": "xuyên qua" },
+        { "text": "spect", "type": "root" },
+        { "text": "ive", "type": "suffix", "meaning_vi": "tính chất" }
+      ],
+      "ipa": "/pərˈspektɪv/",
+      "pos": "n.",
+      "meaning_vi": "góc nhìn",
+      "vo": "[en:per] là xuyên qua. Cách bạn nhìn xuyên qua một vấn đề, chính là góc nhìn.",
+      "example_en": "Try to see it from my perspective.",
+      "example_vi": "Thử nhìn chuyện này từ góc nhìn của mình xem.",
+      "emoji": "📐",
+      "mnemonic": false,
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "spectacle",
+      "parts": [
+        { "text": "spect", "type": "root" },
+        { "text": "acle", "type": "suffix", "meaning_vi": "thứ để" }
+      ],
+      "ipa": "/ˈspektəkl/",
+      "pos": "n.",
+      "meaning_vi": "cảnh tượng",
+      "vo": "Thứ đáng để mọi người nhìn, gọi là cảnh tượng. Còn [en:spectacles] số nhiều là cái kính đeo mắt.",
+      "example_en": "The fireworks were a great spectacle.",
+      "example_vi": "Màn pháo hoa là một cảnh tượng tuyệt đẹp.",
+      "emoji": "🎆",
+      "mnemonic": false,
+      "note_vi": "spectacles (số nhiều) = kính đeo mắt",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    }
+  ],
+  "summary": { "vo": "Tám từ, chung một gốc [en:spect]. Chụp màn hình lại để ôn nhé!" },
+  "quiz": {
+    "word": "introspection",
+    "parts": [
+      { "text": "intro", "type": "prefix", "meaning_vi": "vào trong" },
+      { "text": "spect", "type": "root" },
+      { "text": "ion", "type": "suffix" }
+    ],
+    "ipa": "/ˌɪntrəˈspekʃn/",
+    "hint_vi": "INTRO = vào trong bản thân",
+    "vo": "Câu đố đây! [en:intro] là vào trong bản thân. Vậy từ này nghĩa là gì? Trả lời ở bình luận nhé!",
+    "answer_vi": "sự tự xem xét nội tâm, tự nhìn lại bản thân"
+  },
+  "disclaimer_vi": "Một số cách giải thích là mẹo nhớ, không phải lịch sử từ chính xác 100%.",
+  "lexicon": {},
+  "music": null,
+  "publish": {
+    "youtube_title": "Gốc SPECT: biết 1 gốc, hiểu luôn 8 từ tiếng Anh",
+    "youtube_description": "Tập 1 · Học từ vựng tiếng Anh theo gốc từ: chỉ cần biết SPECT nghĩa là \"nhìn\", bạn đoán được nghĩa của cả 8 từ.",
+    "tiktok_caption": "Biết 1 gốc SPECT, hiểu luôn 8 từ tiếng Anh 🤯 Từ cuối video nghĩa là gì? Đoán thử nhé!",
+    "hashtags": ["#englishkokho", "#hoctienganh", "#tuvungtienganh", "#learnenglish", "#ielts"],
+    "pinned_comment": "🤔 introspection nghĩa là gì? Gợi ý: INTRO = vào trong bản thân. Bình luận đáp án nhé, 24h nữa mình trả lời ngay dưới đây! 👇",
+    "cover_text": "1 gốc = 8 từ mới"
+  }
+}
