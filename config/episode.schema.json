@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "english-ko-kho/episode.schema.json",
+  "title": "English Ko Khó – dữ liệu một tập",
+  "description": "Giao kèo giữa khâu soạn nội dung và khâu dựng video. Lời đọc (vo) viết tiếng Việt; đoạn cần giọng bản ngữ bọc trong [en:...].",
+  "type": "object",
+  "required": ["id", "episode", "format", "status", "title_vi", "hook", "root", "words", "summary", "quiz", "publish"],
+  "additionalProperties": false,
+  "$defs": {
+    "vo": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Lời đọc. Tiếng Việt đọc bằng giọng VI; đoạn [en:...] đọc bằng giọng EN. Tránh dấu gạch nối giữa chữ (La-tinh đọc thành 'la âm tinh')."
+    },
+    "part": {
+      "type": "object",
+      "required": ["text", "type"],
+      "additionalProperties": false,
+      "properties": {
+        "text": { "type": "string", "minLength": 1 },
+        "type": { "enum": ["prefix", "root", "suffix", "plain"] },
+        "meaning_vi": { "type": "string" }
+      }
+    },
+    "parts": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/part" } }
+  },
+  "properties": {
+    "$schema": { "type": "string" },
+    "id": { "type": "string", "pattern": "^[0-9]{3}-[a-z0-9-]+$", "description": "Trùng tên thư mục, ví dụ 001-spect" },
+    "episode": { "type": "integer", "minimum": 1 },
+    "format": {
+      "enum": ["root_family", "confusing_pair", "surprising_origin", "guess_challenge", "sino_vietnamese"],
+      "description": "Dạng tập (Content Plan mục 2 và 8). Template hiện dựng sẵn root_family."
+    },
+    "status": {
+      "enum": ["draft", "verified", "rendered", "published"],
+      "description": "draft: Claude soạn; verified: người đã kiểm 2 nguồn mỗi từ; rendered: đã có mp4; published: đã đăng"
+    },
+    "title_vi": { "type": "string", "maxLength": 70 },
+    "series_note_vi": { "type": "string", "description": "Ghi chú nối tập, ví dụ 'bạn đã gặp từ này ở tập 2'" },
+    "hook": {
+      "type": "object",
+      "required": ["vo", "on_screen"],
+      "additionalProperties": false,
+      "properties": {
+        "vo": { "$ref": "#/$defs/vo" },
+        "on_screen": { "type": "string", "maxLength": 60 }
+      }
+    },
+    "root": {
+      "type": "object",
+      "required": ["text", "origin", "meaning_vi", "vo"],
+      "additionalProperties": false,
+      "properties": {
+        "text": { "type": "string", "description": "Gốc hiển thị, ví dụ SPECT" },
+        "variants": { "type": "array", "items": { "type": "string" } },
+        "origin": { "type": "string", "description": "Ví dụ: Latin specere" },
+        "meaning_vi": { "type": "string" },
+        "emoji": { "type": "string" },
+        "vo": { "$ref": "#/$defs/vo" }
+      }
+    },
+    "words": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["word", "parts", "ipa", "pos", "meaning_vi", "vo", "example_en", "sources", "verified"],
+        "additionalProperties": false,
+        "properties": {
+          "word": { "type": "string" },
+          "parts": { "$ref": "#/$defs/parts" },
+          "ipa": { "type": "string", "pattern": "^/.+/$" },
+          "pos": { "type": "string", "description": "n. / v. / adj. / adv. ..." },
+          "meaning_vi": { "type": "string", "maxLength": 40 },
+          "vo": { "$ref": "#/$defs/vo" },
+          "example_en": { "type": "string" },
+          "example_vi": { "type": "string" },
+          "emoji": { "type": "string" },
+          "mnemonic": { "type": "boolean", "description": "true nếu lời giải thích là mẹo nhớ, không phải từ nguyên chính xác" },
+          "note_vi": { "type": "string", "description": "Lưu ý ngắn trên màn hình, ví dụ đổi trọng âm" },
+          "sources": { "type": "array", "items": { "type": "string" } },
+          "verified": { "type": "boolean" }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": ["vo"],
+      "additionalProperties": false,
+      "properties": { "vo": { "$ref": "#/$defs/vo" } }
+    },
+    "quiz": {
+      "type": "object",
+      "required": ["word", "parts", "hint_vi", "vo", "answer_vi"],
+      "additionalProperties": false,
+      "properties": {
+        "word": { "type": "string" },
+        "parts": { "$ref": "#/$defs/parts" },
+        "ipa": { "type": "string" },
+        "hint_vi": { "type": "string" },
+        "vo": { "$ref": "#/$defs/vo" },
+        "answer_vi": { "type": "string", "description": "Không hiện trong video; dùng cho bình luận ghim" }
+      }
+    },
+    "disclaimer_vi": { "type": "string", "description": "Câu nói rõ đâu là mẹo nhớ (Content Plan mục 4)" },
+    "lexicon": {
+      "type": "object",
+      "additionalProperties": { "type": "string" },
+      "description": "Cách đọc riêng cho giọng VI, ví dụ {\"SPECT\": \"x pếch\"}"
+    },
+    "music": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "file": { "type": "string", "description": "Đường dẫn trong public/, ví dụ music/chill.mp3" },
+        "source": { "type": "string", "description": "Nguồn + giấy phép" },
+        "volume": { "type": "number" }
+      }
+    },
+    "publish": {
+      "type": "object",
+      "required": ["youtube_title", "tiktok_caption", "hashtags", "pinned_comment"],
+      "additionalProperties": false,
+      "properties": {
+        "youtube_title": { "type": "string", "maxLength": 90 },
+        "youtube_description": { "type": "string" },
+        "tiktok_caption": { "type": "string", "maxLength": 300 },
+        "hashtags": { "type": "array", "items": { "type": "string", "pattern": "^#\\S+$" } },
+        "pinned_comment": { "type": "string" },
+        "cover_text": { "type": "string", "description": "Chữ trên ảnh bìa, mặc định = hook.on_screen" }
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "../../config/episode.schema.json",
+  "id": "000-template",
+  "episode": 0,
+  "format": "root_family",
+  "status": "draft",
+  "title_vi": "Biết gốc XXX, hiểu luôn N từ",
+  "hook": {
+    "vo": "Có một mảnh nhỏ nằm trong cả tám từ này. Biết nó, bạn hiểu luôn cả tám.",
+    "on_screen": "1 gốc từ = 8 từ mới"
+  },
+  "root": {
+    "text": "XXX",
+    "variants": ["xxx"],
+    "origin": "Latin xxxere",
+    "meaning_vi": "nghĩa gốc",
+    "emoji": "👀",
+    "vo": "[en:xxx] đến từ tiếng La tinh, nghĩa là ..."
+  },
+  "words": [
+    {
+      "word": "inxxx",
+      "parts": [
+        { "text": "in", "type": "prefix", "meaning_vi": "vào trong" },
+        { "text": "xxx", "type": "root" }
+      ],
+      "ipa": "/ɪnˈxxx/",
+      "pos": "v.",
+      "meaning_vi": "nghĩa ngắn",
+      "vo": "IN là vào trong. ... tức là ...",
+      "example_en": "An example sentence with inxxx.",
+      "example_vi": "Bản dịch câu ví dụ.",
+      "emoji": "🔍",
+      "mnemonic": false,
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    }
+  ],
+  "summary": { "vo": "Chụp màn hình lại để ôn nhé." },
+  "quiz": {
+    "word": "introxxx",
+    "parts": [
+      { "text": "intro", "type": "prefix" },
+      { "text": "xxx", "type": "root" }
+    ],
+    "hint_vi": "INTRO là vào trong bản thân",
+    "vo": "[en:intro] là vào trong bản thân. Đoán nghĩa từ này và trả lời ở bình luận nhé!",
+    "answer_vi": "đáp án"
+  },
+  "disclaimer_vi": "Mẹo nhớ giúp bạn nhớ nhanh, không phải lịch sử từ chính xác 100%.",
+  "lexicon": {},
+  "music": null,
+  "publish": {
+    "youtube_title": "Biết gốc XXX, hiểu luôn 8 từ tiếng Anh #Shorts",
+    "tiktok_caption": "Biết 1 gốc XXX, hiểu luôn 8 từ 🤯 Đoán nghĩa từ cuối video nhé!",
+    "hashtags": ["#englishkokho", "#hoctienganh", "#tuvungtienganh", "#learnenglish", "#ielts"],
+    "pinned_comment": "Đáp án: ..."
+  }
+}
