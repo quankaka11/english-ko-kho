@@ -128,7 +128,7 @@
         "youtube_description": { "type": "string" },
         "tiktok_caption": { "type": "string", "maxLength": 300 },
         "hashtags": { "type": "array", "items": { "type": "string", "pattern": "^#\\S+$" } },
-        "pinned_comment": { "type": "string" },
+        "pinned_comment": { "type": "string", "description": "Bình luận ghim dạng câu hỏi (KHÔNG chứa đáp án); đáp án lấy từ quiz.answer_vi, đăng sau 24h" },
         "cover_text": { "type": "string", "description": "Chữ trên ảnh bìa, mặc định = hook.on_screen" }
       }
     }
