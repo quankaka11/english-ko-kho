@@ -1,0 +1,2 @@
+# Guide TTS
+Sử dụng thông qua biến trong env, với giọng mặc định có id là "vv"(tôi nhớ id là thế). Test thử xem được không và nếu có thì gợi ý giọng đọc phù hợp hơn, hoặc những voice không bản quyền hay sử dụng phổ biến
