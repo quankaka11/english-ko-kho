@@ -41,8 +41,8 @@
     "fps": 30,
     "safe_top_pct": 15,
     "safe_bottom_pct": 75,
-    "gap_between_clips_sec": 0.25,
-    "scene_tail_sec": 0.45
+    "gap_between_clips_sec": 0.2,
+    "scene_tail_sec": 0.35
   },
   "voice": {
     "vi": { "engine": "zipvoice", "voice": "vv_sample", "speed": null, "num_step": 32 },

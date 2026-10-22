@@ -34,12 +34,20 @@ export const WordParts: React.FC<Props> = ({
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   return (
-    <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: "center",
+        paddingBottom: labels ? fontSize * 0.42 : 0,
+      }}
+    >
       {parts.map((p, i) => {
         const s = revealFrom === null ? 1 : pop(frame, fps, revealFrom + i * stagger);
         const color = rootOnly && p.type !== "root" ? C.ink : PART_COLOR[p.type];
         return (
-          <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          // Nhãn nằm tuyệt đối bên dưới để các mảnh luôn liền nhau thành một từ.
+          <div key={i} style={{ position: "relative" }}>
             <span
               style={{
                 fontFamily: FONT.display,
@@ -54,23 +62,38 @@ export const WordParts: React.FC<Props> = ({
             >
               {p.text}
             </span>
-            {labels && (
-              <span
-                style={{
-                  marginTop: 6,
-                  minHeight: fontSize * 0.3,
-                  fontFamily: FONT.body,
-                  fontWeight: 700,
-                  fontSize: fontSize * 0.24,
-                  color,
-                  opacity: s,
-                  borderTop: p.meaning_vi ? `6px solid ${color}` : "none",
-                  padding: "6px 10px 0",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {p.meaning_vi ?? ""}
-              </span>
+            {labels && p.meaning_vi && (
+              <>
+                {/* Gạch chân dài đúng bằng mảnh chữ: thấy rõ ranh giới tiền tố / gốc / hậu tố */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "100%",
+                    left: 6,
+                    right: 6,
+                    height: 6,
+                    borderRadius: 3,
+                    background: color,
+                    opacity: s,
+                  }}
+                />
+                <span
+                  style={{
+                    position: "absolute",
+                    top: "100%",
+                    left: "50%",
+                    translate: "-50% 12px",
+                    fontFamily: FONT.body,
+                    fontWeight: 700,
+                    fontSize: fontSize * 0.24,
+                    color,
+                    whiteSpace: "nowrap",
+                    opacity: s,
+                  }}
+                >
+                  {p.meaning_vi}
+                </span>
+              </>
             )}
           </div>
         );
