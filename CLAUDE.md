@@ -27,13 +27,26 @@ python scripts/export_brand.py   # xuất lại avatar/banner sau khi sửa logo
 - Animation dùng `useCurrentFrame` + `interpolate`/`spring`, không dùng CSS transition. Các gói `@remotion/*` phải cùng đúng một phiên bản.
 - Không commit: `.env`, `out/`, `public/episodes/`, `.cache/`, `node_modules/`, `.agents/`.
 - Commit theo bước, message tiếng Việt dạng `<Khu vực>: <việc>` (Setup / Brand / Episode / Audio / Video / Publish / Docs / Content).
+
+## Quy ước nhánh
+
+| Nhánh | Chứa | Không chứa |
+| --- | --- | --- |
+| `master` | Mọi thứ dùng chung: `src/`, `scripts/`, `config/`, `brand/`, `public/sfx`, skills, docs, tập test `episodes/000-demo` | Nội dung tập thật |
+| `episode/<id>` (ví dụ `episode/001-spect`) | Chỉ `episodes/<id>/` của tập đó | File dùng chung |
+
+- Tập mới: `git checkout master && git pull && git checkout -b episode/<id>`.
+- Đang làm tập mà phát hiện lỗi template/script: **sửa trên `master`** (commit riêng, push), rồi quay lại nhánh tập và chạy `git rebase master`. Không commit file dùng chung trên nhánh tập.
+- Trước khi commit trên nhánh tập, kiểm tra `git diff --cached --name-only` chỉ có `episodes/<id>/`.
+- Trước khi push `master`: `npm run typecheck` và `python scripts/build.py 000-demo --preview` phải chạy được.
+- Danh sách tập: `git branch -a --list "*episode/*"`. Xem nội dung một tập mà không đổi nhánh: `git show episode/<id>:episodes/<id>/episode.json`.
 - Chạy Python trên Windows: script phải `import common` để console dùng UTF-8.
 
 ## Cấu trúc
 
 ```
 config/      brand.json (thương hiệu), episode.schema.json, episode.template.json
-episodes/    <id>/episode.json – nguồn nội dung (commit)
+episodes/    <id>/episode.json – nguồn nội dung; trên master chỉ có 000-demo, tập thật nằm ở nhánh episode/<id>
 scripts/     pipeline Python: validate, make_audio (tts.py, vo.py), build_props, build, make_post, make_sfx, export_brand
 src/         Remotion: EpisodeVideo, Cover, scenes/, components/, brand/ (Logo, Capi)
 public/      sfx/, music/ (commit) · episodes/ (audio + props sinh ra, không commit)

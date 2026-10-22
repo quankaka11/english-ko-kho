@@ -9,7 +9,11 @@ Trước khi viết: đọc `documents/Content_Plan.md` (mục 2 format, mục 3
 
 ## Quy trình
 
-1. **Chọn id**: `NNN-<goc>` (ví dụ `005-scrib`), trùng tên thư mục. Xem các tập đã có bằng `ls episodes/` để không trùng, đồng thời ghi lại từ nào đã xuất hiện ở tập trước để nhắc "bạn đã gặp ở tập N".
+1. **Chọn id và tạo nhánh riêng**: id dạng `NNN-<goc>` (ví dụ `005-scrib`), trùng tên thư mục. Mỗi tập nằm trên một nhánh riêng tách từ `master` (quy ước ở `CLAUDE.md`):
+   ```bash
+   git checkout master && git pull && git checkout -b episode/<id>
+   ```
+   Xem các tập đã có bằng `git branch -a --list "*episode/*"` để không trùng. Đọc tập cũ bằng `git show episode/<id-cũ>:episodes/<id-cũ>/episode.json` để biết từ nào đã xuất hiện, rồi nhắc "bạn đã gặp ở tập N".
 2. **Tạo file** từ mẫu: copy `config/episode.template.json` thành `episodes/<id>/episode.json`. Schema đầy đủ có mô tả từng trường ở `config/episode.schema.json`.
 3. **Soạn nội dung** theo các quy tắc bên dưới. Để `status: "draft"` và mọi từ `verified: false`. **Không bao giờ** tự đặt `verified: true`: bước kiểm chứng là việc của người (đó cũng là lúc họ học).
 4. **Kiểm tra**: `python scripts/validate_episode.py <id>`. Sửa hết lỗi ✗; còn cảnh báo `verified=false` là bình thường ở bản nháp.
@@ -54,4 +58,4 @@ VO tiếng Việt được đọc bằng ZipVoice (giọng `vv_sample`), đoạn
 
 - `python scripts/validate_episode.py <id>` báo ĐẠT, chỉ còn cảnh báo verified/nguồn.
 - Người dùng đã nhận danh sách link để tự kiểm chứng.
-- Sau khi người dùng kiểm chứng: đặt `verified: true` cho từng từ, `status: "verified"`, chạy lại với `--strict`, rồi commit `Content: tập NNN -XXX-`.
+- Sau khi người dùng kiểm chứng: đặt `verified: true` cho từng từ, `status: "verified"`, chạy lại với `--strict`, rồi commit `Content: tập NNN -XXX-` **trên nhánh `episode/<id>`** (chỉ chứa `episodes/<id>/`). Phát hiện lỗi template thì sửa trên `master` rồi `git rebase master`.

@@ -19,6 +19,12 @@ npx remotion skills add         # Agent Skills của Remotion cho Claude Code (t
 
 ## Làm một tập
 
+Mỗi tập nằm trên một nhánh riêng `episode/<id>`; `master` chỉ chứa phần dùng chung (chi tiết ở `CLAUDE.md` → Quy ước nhánh).
+
+```bash
+git checkout master && git pull && git checkout -b episode/005-scrib
+```
+
 ```bash
 # 1. Soạn nội dung (nhờ Claude Code: "soạn tập 5, gốc -SCRIB-" → skill ekk-episode)
 #    -> episodes/005-scrib/episode.json, sau đó tự kiểm chứng từng từ và đặt verified: true

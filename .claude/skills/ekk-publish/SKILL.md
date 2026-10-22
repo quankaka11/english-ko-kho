@@ -13,7 +13,7 @@ Claude **không tự đăng** lên nền tảng: chỉ chuẩn bị bộ đăng 
 2. Đã render chưa? Kiểm tra `out/<id>/<id>.mp4`, `cover.png`, `qa.txt`. Nếu chưa có thì chạy `python scripts/build.py <id> --strict` (skill `ekk-produce`).
 3. Sinh lại bộ đăng bài sau mỗi lần sửa `publish` trong episode.json: `python scripts/make_post.py <id>` → `out/<id>/post.md`.
 4. Gửi người dùng nội dung `post.md` (caption TikTok, tiêu đề + mô tả YouTube, bình luận ghim) và nhắc các cài đặt bắt buộc ở dưới.
-5. Sau khi người dùng xác nhận đã đăng: đặt `status: "published"` trong episode.json, commit `Publish: tập NNN -XXX-`.
+5. Sau khi người dùng xác nhận đã đăng: đặt `status: "published"` trong episode.json, commit `Publish: tập NNN -XXX-` trên nhánh `episode/<id>`, rồi `git push`.
 6. **Sau 24 giờ**: trả lời bình luận ghim bằng đáp án (`quiz.answer_vi`, mẫu có trong post.md). Đọc các bình luận đoán sai để giải thích, đó là nguồn ôn tập (Content Plan mục 6).
 
 ## Cài đặt bắt buộc (Content Plan 5.3, Technology Plan 6)
