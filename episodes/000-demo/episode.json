@@ -1,0 +1,74 @@
+{
+  "$schema": "../../config/episode.schema.json",
+  "id": "000-demo",
+  "episode": 1,
+  "format": "root_family",
+  "status": "draft",
+  "title_vi": "Tập demo kỹ thuật – gốc PORT (không đăng)",
+  "hook": {
+    "vo": "Ba từ này có chung một mảnh nhỏ. Biết nó, bạn hiểu luôn cả ba.",
+    "on_screen": "1 gốc = 3 từ"
+  },
+  "root": {
+    "text": "PORT",
+    "origin": "Latin portare",
+    "meaning_vi": "mang",
+    "emoji": "📦",
+    "vo": "[en:port] đến từ tiếng La tinh, nghĩa là mang."
+  },
+  "words": [
+    {
+      "word": "import",
+      "parts": [{ "text": "im", "type": "prefix", "meaning_vi": "vào" }, { "text": "port", "type": "root" }],
+      "ipa": "/ɪmˈpɔːrt/",
+      "pos": "v.",
+      "meaning_vi": "nhập khẩu",
+      "vo": "IM là vào. Mang vào trong nước, tức là nhập khẩu.",
+      "example_en": "Vietnam imports a lot of cotton.",
+      "example_vi": "Việt Nam nhập khẩu rất nhiều bông.",
+      "emoji": "🚢",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "export",
+      "parts": [{ "text": "ex", "type": "prefix", "meaning_vi": "ra ngoài" }, { "text": "port", "type": "root" }],
+      "ipa": "/ɪkˈspɔːrt/",
+      "pos": "v.",
+      "meaning_vi": "xuất khẩu",
+      "vo": "EX là ra ngoài. Mang ra nước ngoài, tức là xuất khẩu.",
+      "example_en": "They export coffee to Europe.",
+      "emoji": "✈️",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "portable",
+      "parts": [{ "text": "port", "type": "root" }, { "text": "able", "type": "suffix", "meaning_vi": "có thể" }],
+      "ipa": "/ˈpɔːrtəbl/",
+      "pos": "adj.",
+      "meaning_vi": "xách tay, mang theo được",
+      "vo": "Thêm [en:able] là có thể. Mang theo được, tức là xách tay.",
+      "example_en": "This speaker is small and portable.",
+      "emoji": "🎒",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    }
+  ],
+  "summary": { "vo": "Chụp màn hình lại để ôn nhé." },
+  "quiz": {
+    "word": "transport",
+    "parts": [{ "text": "trans", "type": "prefix" }, { "text": "port", "type": "root" }],
+    "hint_vi": "TRANS là băng qua",
+    "vo": "[en:trans] là băng qua. Đoán nghĩa từ này và trả lời ở bình luận nhé!",
+    "answer_vi": "vận chuyển (mang từ nơi này qua nơi khác)"
+  },
+  "lexicon": {},
+  "music": null,
+  "publish": {
+    "youtube_title": "Demo kỹ thuật gốc PORT #Shorts",
+    "tiktok_caption": "Demo kỹ thuật – không đăng",
+    "hashtags": ["#englishkokho", "#hoctienganh", "#tuvungtienganh", "#learnenglish"],
+    "pinned_comment": "Đáp án: transport = vận chuyển"
+  }
+}

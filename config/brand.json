@@ -49,8 +49,10 @@
     "en": { "engine": "edge", "voice": "en-US-AvaMultilingualNeural", "rate": "-8%" },
     "en_word_rate": "-20%",
     "fallback_vi": { "engine": "edge", "voice": "vi-VN-HoaiMyNeural", "rate": "+0%" },
-    "loudnorm": "I=-16:TP=-1.5:LRA=11",
-    "caption_words": 5
+    "target_rms_dbfs": -19,
+    "final_loudnorm": "I=-14:TP=-1.5:LRA=11",
+    "caption_words": 5,
+    "lexicon": { "Ko Khó": "không khó", "ko": "không" }
   },
   "intro": {
     "enabled": true,

@@ -25,3 +25,4 @@ Thumbs.db
 .agents/
 .claude/skills/remotion-*
 .claude/settings.local.json
+.cache/
