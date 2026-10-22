@@ -39,6 +39,7 @@ python scripts/export_brand.py   # xuất lại avatar/banner sau khi sửa logo
 - Đang làm tập mà phát hiện lỗi template/script: **sửa trên `master`** (commit riêng, push), rồi quay lại nhánh tập và chạy `git rebase master`. Không commit file dùng chung trên nhánh tập.
 - Trước khi commit trên nhánh tập, kiểm tra `git diff --cached --name-only` chỉ có `episodes/<id>/`.
 - Trước khi push `master`: `npm run typecheck` và `python scripts/build.py 000-demo --preview` phải chạy được.
+- Windows đôi khi khoá file làm `git checkout`/`rebase` chỉ chạy nửa chừng ("could not detach HEAD", HEAD đổi nhưng file chưa đổi). Không dùng `--force`; rebase trong worktree tạm: `git worktree add <thư-mục-tạm> episode/<id>` → `git -C <thư-mục-tạm> rebase master` → `git worktree remove <thư-mục-tạm>`.
 - Danh sách tập: `git branch -a --list "*episode/*"`. Xem nội dung một tập mà không đổi nhánh: `git show episode/<id>:episodes/<id>/episode.json`.
 - Chạy Python trên Windows: script phải `import common` để console dùng UTF-8.
 
