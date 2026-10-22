@@ -1,1 +1,27 @@
+# Bí mật
 .env
+
+# Node / Remotion
+node_modules/
+build/
+.remotion/
+
+# Sản phẩm sinh ra (tái tạo được bằng pipeline)
+out/
+public/episodes/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Remotion Agent Skills (bên thứ 3) — cài lại bằng `npx remotion skills add`, hash ghim trong skills-lock.json
+.agents/
+.claude/skills/remotion-*
+.claude/settings.local.json

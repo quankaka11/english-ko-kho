@@ -1,0 +1,88 @@
+{
+  "channel": {
+    "name": "English Ko Khó",
+    "name_ascii": "English Ko Kho",
+    "meaning_vi": "Tiếng Anh không khó",
+    "handle": "@englishkokho",
+    "tagline_vi": "Biết 1 gốc từ, hiểu cả họ từ"
+  },
+  "mascot": {
+    "name": "Capi",
+    "species": "capybara",
+    "personality_vi": "Chill, chậm rãi, không bao giờ hoảng; câu cửa miệng: \"Ko khó đâu!\"",
+    "signature": "Quả cam trên đầu, thước chỉ bảng màu vàng"
+  },
+  "colors": {
+    "bg": "#FFF7E8",
+    "bgAlt": "#FFEFD2",
+    "card": "#FFFFFF",
+    "ink": "#1F2547",
+    "inkSoft": "#5B6185",
+    "prefix": "#F97316",
+    "root": "#2563EB",
+    "suffix": "#16A34A",
+    "accent": "#FFC93C",
+    "danger": "#E5484D",
+    "capiFur": "#B57A4B",
+    "capiFurDark": "#7A4E2D",
+    "capiFurLight": "#D9A877",
+    "capiOrange": "#FF8A1F",
+    "capiLeaf": "#3FA34D",
+    "capiCheek": "#F4A0A0"
+  },
+  "fonts": {
+    "display": "Baloo 2",
+    "body": "Be Vietnam Pro",
+    "ipa": "Noto Sans"
+  },
+  "video": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "safe_top_pct": 15,
+    "safe_bottom_pct": 75,
+    "gap_between_clips_sec": 0.25,
+    "scene_tail_sec": 0.45
+  },
+  "voice": {
+    "vi": { "engine": "zipvoice", "voice": "vv_sample", "speed": null, "num_step": 32 },
+    "en": { "engine": "edge", "voice": "en-US-AvaMultilingualNeural", "rate": "-8%" },
+    "en_word_rate": "-20%",
+    "fallback_vi": { "engine": "edge", "voice": "vi-VN-HoaiMyNeural", "rate": "+0%" },
+    "loudnorm": "I=-16:TP=-1.5:LRA=11",
+    "caption_words": 5
+  },
+  "intro": {
+    "enabled": true,
+    "position": "after_hook",
+    "duration_sec": 1.3,
+    "vo": null,
+    "sfx": "sfx/pop.wav"
+  },
+  "outro": {
+    "enabled": true,
+    "min_duration_sec": 4.0,
+    "vo": "Thấy ko khó đúng ko? Theo dõi English Ko Khó để mỗi ngày học thêm một gốc từ nhé!",
+    "title": "Theo dõi để học tiếp!",
+    "subtitle": "Mỗi ngày 1 gốc từ · tiếng Anh ko khó",
+    "sfx": "sfx/ding.wav"
+  },
+  "watermark": {
+    "enabled": true,
+    "position": "top-left",
+    "opacity": 0.85,
+    "show_handle": true
+  },
+  "music": {
+    "file": null,
+    "volume": 0.07,
+    "license_note": "Chỉ dùng nhạc YouTube Audio Library / TikTok Commercial Music Library / CC0. Ghi nguồn vào episode.json."
+  },
+  "publish": {
+    "post_time_vn": "19:00–21:00 (Thứ 3, 5, 7)",
+    "base_hashtags": ["#englishkokho", "#hoctienganh", "#tuvungtienganh", "#learnenglish"],
+    "youtube_extra_hashtags": ["#Shorts"],
+    "ai_disclosure_vi": "Lồng tiếng bằng giọng AI. Nội dung do English Ko Khó biên soạn và kiểm chứng.",
+    "follow_line_vi": "Theo dõi @englishkokho để mỗi ngày học thêm 1 gốc từ!"
+  }
+}
