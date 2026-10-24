@@ -143,6 +143,8 @@ Sau 10 tập, số từ đoán đúng ở bước 1 tăng dần là dấu hiệu
 
 ## 7. Lịch đăng & đo lường
 
+> **Từ 24/10/2026:** đang thử nghiệm đăng mỗi ngày 1 video, đan xen dạng tập, trong 30 ngày. Lịch, luật đan xen và cách lấy số liệu xem ở `documents/Experiment_30.md`; danh sách chủ đề ở `tracking/topics.csv`. Lịch 3 tập/tuần dưới đây là phương án gốc, dùng lại nếu thử nghiệm cho thấy đăng mỗi ngày không bền.
+
 Đăng 3 tập/tuần trong 8 tuần đầu (24 tập), cùng một video lên YouTube Shorts và TikTok. Nhịp này đủ đều để thuật toán nhận diện kênh, mà vẫn chừa thời gian cho vòng tự học ở mục 6.
 
 | Ngày | Việc |
