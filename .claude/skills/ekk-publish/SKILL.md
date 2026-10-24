@@ -13,8 +13,9 @@ Claude **không tự đăng** lên nền tảng: chỉ chuẩn bị bộ đăng 
 2. Đã render chưa? Kiểm tra `out/<id>/<id>.mp4`, `cover.png`, `qa.txt`. Nếu chưa có thì chạy `python scripts/build.py <id> --strict` (skill `ekk-produce`).
 3. Sinh lại bộ đăng bài sau mỗi lần sửa `publish` trong episode.json: `python scripts/make_post.py <id>` → `out/<id>/post.md`.
 4. Gửi người dùng nội dung `post.md` (caption TikTok, tiêu đề + mô tả YouTube, bình luận ghim) và nhắc các cài đặt bắt buộc ở dưới.
-5. Sau khi người dùng xác nhận đã đăng: đặt `status: "published"` trong episode.json, commit `Publish: tập NNN -XXX-` trên nhánh `episode/<id>`, rồi `git push`.
+5. Sau khi người dùng xác nhận đã đăng: đặt `status: "published"` trong episode.json, commit `Publish: tập NNN -XXX-` trên nhánh `episode/<id>`, rồi `git push`. Trên `master`: điền `ngay_dang` (YYYY-MM-DD) cho slot trong `tracking/topics.csv`, ghi Nhật ký ở `tracking/NOTES.md`, commit `Publish: đăng slot N` rồi push.
 6. **Sau 24 giờ**: trả lời bình luận ghim bằng đáp án (`quiz.answer_vi`, mẫu có trong post.md). Đọc các bình luận đoán sai để giải thích, đó là nguồn ôn tập (Content Plan mục 6).
+7. **Sau 7 ngày**: nhắc người dùng lấy số liệu TikTok + YouTube của video, mỗi nền tảng một dòng vào `tracking/metrics.csv` (cách lấy: `documents/Experiment_30.md` mục 5). Chạy `python scripts/report.py` để xem dạng nào hiệu quả.
 
 ## Cài đặt bắt buộc (Content Plan 5.3, Technology Plan 6)
 
@@ -26,7 +27,7 @@ Claude **không tự đăng** lên nền tảng: chỉ chuẩn bị bộ đăng 
 | Khán giả | — | "Không dành cho trẻ em" (khán giả THPT/sinh viên) |
 | Hashtag | ≤ 5 (đã giới hạn) | ≤ 6, có `#Shorts` (đã giới hạn) |
 
-Lịch: Thứ 3 (gốc từ), Thứ 5 (xoay dạng 1–6), Thứ 7 (xoay dạng 7–10), đăng lúc 19:00–21:00. Mỗi nền tảng đăng cùng một file mp4.
+Lịch (thử nghiệm 30 ngày, `documents/Experiment_30.md`): mỗi ngày đăng slot kế tiếp trong `tracking/topics.csv` (`status.py` báo slot nào), đúng một giờ cố định đã ghi trong `tracking/NOTES.md` → Quyết định. Mỗi nền tảng đăng cùng một file mp4, cùng ngày. Không đăng lệch thứ tự slot nếu chưa ghi lý do vào Nhật ký.
 
 ## Viết caption tốt
 

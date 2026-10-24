@@ -9,11 +9,12 @@ Trước khi viết: đọc `documents/Content_Plan.md` (mục 2 format, mục 3
 
 ## Quy trình
 
-1. **Chọn id và tạo nhánh riêng**: id dạng `NNN-<goc>` (ví dụ `005-scrib`), trùng tên thư mục. Mỗi tập nằm trên một nhánh riêng tách từ `master` (quy ước ở `CLAUDE.md`):
+0. **Chọn chủ đề từ bộ nhớ chung**: đọc `tracking/NOTES.md`, chạy `python scripts/status.py --fetch`. Lấy slot trống sớm nhất trong `tracking/topics.csv` (hoặc slot người dùng chỉ định). Trên `master`, điền `id` + `nguoi_lam` cho slot đó, commit `Content: nhận slot N <id>` rồi push để người khác không làm trùng. `dang` của slot chính là `format` của tập.
+1. **Chọn id và tạo nhánh riêng**: id dạng `NNN-<goc>` với NNN = số slot (ví dụ slot 5 → `005-graph`), trùng tên thư mục. Mỗi tập nằm trên một nhánh riêng tách từ `master` (quy ước ở `CLAUDE.md`):
    ```bash
    git checkout master && git pull && git checkout -b episode/<id>
    ```
-   Xem các tập đã có bằng `git branch -a --list "*episode/*"` để không trùng. Đọc tập cũ bằng `git show episode/<id-cũ>:episodes/<id-cũ>/episode.json` để biết từ nào đã xuất hiện, rồi nhắc "bạn đã gặp ở tập N".
+   Phần "TỪ LẶP" của `status.py` cho biết từ nào đã/sẽ xuất hiện ở slot khác. Đọc tập cũ bằng `git show episode/<id-cũ>:episodes/<id-cũ>/episode.json`, rồi nhắc "bạn đã gặp ở tập N" (`series_note_vi`).
 2. **Tạo file** từ mẫu: copy `config/episode.template.json` thành `episodes/<id>/episode.json`. Schema đầy đủ có mô tả từng trường ở `config/episode.schema.json`.
 3. **Soạn nội dung** theo các quy tắc bên dưới. Để `status: "draft"` và mọi từ `verified: false`. **Không bao giờ** tự đặt `verified: true`: bước kiểm chứng là việc của người (đó cũng là lúc họ học).
 4. **Kiểm tra**: `python scripts/validate_episode.py <id>`. Sửa hết lỗi ✗; còn cảnh báo `verified=false` là bình thường ở bản nháp.
@@ -28,7 +29,7 @@ Trước khi viết: đọc `documents/Content_Plan.md` (mục 2 format, mục 3
 - Câu ví dụ do mình tự viết, ngắn (≤ 8 từ), phải chứa đúng từ đó (cho phép chia động từ hoặc số nhiều). Không chép câu ví dụ của từ điển.
 - `meaning_vi` ≤ 18 ký tự để hiển thị to; nghĩa dài để vào VO.
 - `hook.on_screen` ≤ 22 ký tự. Hook 3 giây đầu phải gây tò mò, ví dụ "Biết 1 mảnh này, hiểu luôn 8 từ".
-- Thay đổi dạng tập (`format`) theo Content Plan mục 8 để tránh bị YouTube xếp vào "nội dung lặp lại". Hiện template mới dựng sẵn dạng `root_family`.
+- Dạng tập (`format`) theo cột `dang` của slot trong `tracking/topics.csv`: slot lẻ là Gốc từ, slot chẵn xoay 4 dạng khác (`documents/Experiment_30.md` mục 2), để tránh bị YouTube xếp vào "nội dung lặp lại". Hiện template mới dựng sẵn dạng `root_family`.
 
 ## Viết lời đọc (VO) cho TTS
 
@@ -59,3 +60,4 @@ VO tiếng Việt được đọc bằng ZipVoice (giọng `vv_sample`), đoạn
 - `python scripts/validate_episode.py <id>` báo ĐẠT, chỉ còn cảnh báo verified/nguồn.
 - Người dùng đã nhận danh sách link để tự kiểm chứng.
 - Sau khi người dùng kiểm chứng: đặt `verified: true` cho từng từ, `status: "verified"`, chạy lại với `--strict`, rồi commit `Content: tập NNN -XXX-` **trên nhánh `episode/<id>`** (chỉ chứa `episodes/<id>/`). Phát hiện lỗi template thì sửa trên `master` rồi `git rebase master`.
+- Đã ghi một dòng vào `tracking/NOTES.md` → Nhật ký (trên `master`), kể cả lưu ý cho người làm tập sau.

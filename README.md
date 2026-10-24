@@ -79,6 +79,8 @@ Lưu ý về giấy phép: edge-tts dùng dịch vụ đọc của Microsoft Edg
 
 ## Tài liệu
 
+- `tracking/NOTES.md`: **bộ nhớ chung** (đang ở đâu, việc tiếp theo, quyết định, nhật ký). Xem tiến độ: `python scripts/status.py --fetch`
+- `documents/Experiment_30.md`: thử nghiệm 30 ngày đăng mỗi ngày, cách lấy số liệu TikTok/Shorts, `python scripts/report.py`
 - `documents/Content_Plan.md`, `documents/Technology_Plan.md`: kế hoạch gốc
 - `brand/BRAND.md`: logo, Capi, màu, font, giọng văn
 - `config/episode.schema.json`: mô tả từng trường của episode.json

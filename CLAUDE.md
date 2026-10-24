@@ -2,6 +2,13 @@
 
 Kênh video ngắn 9:16 dạy từ vựng tiếng Anh theo gốc từ, lời dẫn tiếng Việt. Tài liệu gốc: `documents/Content_Plan.md` (nội dung) và `documents/Technology_Plan.md` (kỹ thuật). Thương hiệu: `brand/BRAND.md`.
 
+## Bộ nhớ chung (đọc đầu mỗi phiên)
+
+- `tracking/NOTES.md`: đang ở đâu, việc tiếp theo, quyết định, nhật ký. Làm xong việc gì thì ghi một dòng vào Nhật ký.
+- `tracking/topics.csv`: 30 chủ đề của đợt thử nghiệm (`documents/Experiment_30.md`). Nhận slot bằng cách điền `nguoi_lam`/`id` trước khi soạn.
+- `python scripts/status.py --fetch`: tiến độ từng slot, việc tiếp theo, từ bị lặp. Chạy trước khi chọn chủ đề.
+- `tracking/` là file dùng chung: chỉ sửa và commit trên `master`, rồi push ngay để người khác thấy.
+
 ## Skill của dự án (dùng trước khi tự làm)
 
 - `ekk-episode`: soạn/sửa `episodes/<id>/episode.json`
@@ -17,6 +24,8 @@ python scripts/build.py <id> [--preview|--no-render|--skip-audio|--strict]
 npm run dev          # Remotion Studio
 npm run typecheck
 python scripts/export_brand.py   # xuất lại avatar/banner sau khi sửa logo, Capi
+python scripts/status.py [--fetch]   # tiến độ 30 chủ đề, việc tiếp theo
+python scripts/report.py             # so sánh dạng tập từ tracking/metrics.csv
 ```
 
 ## Quy tắc cứng
@@ -32,7 +41,7 @@ python scripts/export_brand.py   # xuất lại avatar/banner sau khi sửa logo
 
 | Nhánh | Chứa | Không chứa |
 | --- | --- | --- |
-| `master` | Mọi thứ dùng chung: `src/`, `scripts/`, `config/`, `brand/`, `public/sfx`, skills, docs, tập test `episodes/000-demo` | Nội dung tập thật |
+| `master` | Mọi thứ dùng chung: `src/`, `scripts/`, `config/`, `brand/`, `public/sfx`, `tracking/`, skills, docs, tập test `episodes/000-demo` | Nội dung tập thật |
 | `episode/<id>` (ví dụ `episode/001-spect`) | Chỉ `episodes/<id>/` của tập đó | File dùng chung |
 
 - Tập mới: `git checkout master && git pull && git checkout -b episode/<id>`.
@@ -48,7 +57,8 @@ python scripts/export_brand.py   # xuất lại avatar/banner sau khi sửa logo
 ```
 config/      brand.json (thương hiệu), episode.schema.json, episode.template.json
 episodes/    <id>/episode.json – nguồn nội dung; trên master chỉ có 000-demo, tập thật nằm ở nhánh episode/<id>
-scripts/     pipeline Python: validate, make_audio (tts.py, vo.py), build_props, build, make_post, make_sfx, export_brand
+scripts/     pipeline Python: validate, make_audio (tts.py, vo.py), build_props, build, make_post, make_sfx, export_brand, status, report
+tracking/    bộ nhớ chung: NOTES.md, topics.csv (30 chủ đề), metrics.csv (số liệu 7 ngày sau đăng)
 src/         Remotion: EpisodeVideo, Cover, scenes/, components/, brand/ (Logo, Capi)
 public/      sfx/, music/ (commit) · episodes/ (audio + props sinh ra, không commit)
 brand/       BRAND.md + exports/ (avatar, banner)
