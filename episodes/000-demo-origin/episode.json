@@ -1,0 +1,91 @@
+{
+  "$schema": "../../config/episode.schema.json",
+  "id": "000-demo-origin",
+  "episode": 1,
+  "format": "surprising_origin",
+  "status": "draft",
+  "title_vi": "Tập demo kỹ thuật – nguồn gốc bất ngờ (không đăng)",
+  "hook": {
+    "vo": "Cơ bắp trong tiếng Anh từng có nghĩa là con chuột nhỏ. Thật đấy!",
+    "on_screen": "Cơ bắp = con chuột?"
+  },
+  "topic": {
+    "title": "Từ có quá khứ lạ",
+    "subtitle_vi": "Mỗi từ giấu một câu chuyện",
+    "emoji": "🕰️",
+    "vo": "Mỗi từ dưới đây đều giấu một câu chuyện mà ít ai biết."
+  },
+  "words": [
+    {
+      "word": "quarantine",
+      "parts": [{ "text": "quarant", "type": "root", "meaning_vi": "bốn mươi" }, { "text": "ine", "type": "plain" }],
+      "ipa": "/ˈkwɔːrəntiːn/",
+      "pos": "n.",
+      "meaning_vi": "cách ly",
+      "origin_vi": "Ý: quaranta = bốn mươi",
+      "vo": "Ở Venice thời dịch hạch, tàu phải chờ bốn mươi ngày mới được cập bến. Bốn mươi ngày đó thành từ cách ly.",
+      "example_en": "They stayed in quarantine for two weeks.",
+      "example_vi": "Họ cách ly hai tuần.",
+      "emoji": "🚢",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "muscle",
+      "parts": [{ "text": "musc", "type": "root", "meaning_vi": "chuột" }, { "text": "le", "type": "suffix", "meaning_vi": "nhỏ" }],
+      "ipa": "/ˈmʌsl/",
+      "pos": "n.",
+      "meaning_vi": "cơ bắp",
+      "origin_vi": "Latin musculus = chuột nhỏ",
+      "vo": "Người La Mã thấy bắp tay cử động giống một con chuột nhỏ chạy dưới da.",
+      "example_en": "Exercise makes your muscles stronger.",
+      "emoji": "💪",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "disaster",
+      "parts": [{ "text": "dis", "type": "prefix", "meaning_vi": "xấu" }, { "text": "aster", "type": "root", "meaning_vi": "ngôi sao" }],
+      "ipa": "/dɪˈzæstər/",
+      "pos": "n.",
+      "meaning_vi": "thảm họa",
+      "origin_vi": "Ý: disastro = sao xấu",
+      "vo": "[en:dis] là xấu, [en:aster] là ngôi sao. Ngày xưa người ta tin tai họa đến từ một ngôi sao xấu.",
+      "example_en": "The flood was a terrible disaster.",
+      "emoji": "🌠",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "girl",
+      "parts": [{ "text": "girl", "type": "plain" }],
+      "ipa": "/ɡɜːrl/",
+      "pos": "n.",
+      "meaning_vi": "cô gái",
+      "origin_vi": "Anh trung đại: gurle",
+      "then_vi": "đứa trẻ, trai hay gái",
+      "vo": "Khoảng thế kỷ mười ba, từ này chỉ một đứa trẻ bất kỳ, cả trai lẫn gái.",
+      "example_en": "The girl is reading a book.",
+      "emoji": "👧",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    }
+  ],
+  "summary": { "vo": "Chụp màn hình lại, kể cho bạn bè nghe nhé." },
+  "quiz": {
+    "word": "salary",
+    "parts": [{ "text": "sal", "type": "root" }, { "text": "ary", "type": "suffix" }],
+    "hint_vi": "SAL trong tiếng La tinh là muối",
+    "vo": "[en:sal] trong tiếng La tinh là muối. Đoán xem từ này nghĩa là gì, trả lời ở bình luận nhé!",
+    "answer_vi": "tiền lương (Latin salarium; chuyện lính La Mã được trả lương bằng muối chưa được chứng minh)"
+  },
+  "disclaimer_vi": "Nguồn gốc theo Etymonline; chỗ còn tranh cãi được nói rõ.",
+  "lexicon": {},
+  "music": null,
+  "publish": {
+    "youtube_title": "Demo kỹ thuật: nguồn gốc bất ngờ #Shorts",
+    "tiktok_caption": "Demo kỹ thuật – không đăng",
+    "hashtags": ["#englishkokho", "#hoctienganh", "#tuvungtienganh", "#learnenglish"],
+    "pinned_comment": "🤔 Bạn đoán từ cuối video nghĩa là gì? Bình luận đáp án nhé, 24h nữa mình trả lời ngay dưới đây! 👇"
+  }
+}

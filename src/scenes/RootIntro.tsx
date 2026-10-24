@@ -9,6 +9,7 @@ export const RootIntro: React.FC<{ scene: Scene; episode: Episode }> = ({ scene,
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const { root } = episode;
+  if (!root) return null;
   const clip = scene.clips[0];
   const meaningAt = clip ? clip.from + Math.round(clip.duration * 0.6) : 30;
 

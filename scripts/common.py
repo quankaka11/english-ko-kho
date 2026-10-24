@@ -23,6 +23,11 @@ def load_brand() -> dict:
     return json.loads((ROOT / "config" / "brand.json").read_text(encoding="utf-8"))
 
 
+def load_formats() -> dict:
+    """Cấu hình các dạng tập (tên, số từ, cảnh, tập mẫu): config/formats.json."""
+    return json.loads((ROOT / "config" / "formats.json").read_text(encoding="utf-8"))
+
+
 def load_env() -> None:
     """Nạp .env vào os.environ (không ghi đè biến đã có). Không cần python-dotenv."""
     env = ROOT / ".env"

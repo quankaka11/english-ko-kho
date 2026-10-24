@@ -1,5 +1,5 @@
 import { interpolate, useCurrentFrame, useVideoConfig } from "remotion";
-import { pop } from "../anim";
+import { clamp, pop } from "../anim";
 import { C, FONT } from "../brand";
 import type { Part, PartType } from "../types";
 
@@ -19,6 +19,8 @@ type Props = {
   stagger?: number;
   /** Hiện nghĩa nhỏ dưới mỗi mảnh. */
   labels?: boolean;
+  /** Frame bắt đầu hiện nhãn nghĩa (mặc định hiện cùng mảnh). Dùng khi muốn giấu nghĩa cho người xem đoán. */
+  labelsFrom?: number | null;
   /** Chỉ tô màu mảnh gốc, các mảnh khác màu chữ thường (dùng ở Hook). */
   rootOnly?: boolean;
 };
@@ -29,6 +31,7 @@ export const WordParts: React.FC<Props> = ({
   revealFrom = null,
   stagger = 9,
   labels = false,
+  labelsFrom = null,
   rootOnly = false,
 }) => {
   const frame = useCurrentFrame();
@@ -45,6 +48,7 @@ export const WordParts: React.FC<Props> = ({
       {parts.map((p, i) => {
         const s = revealFrom === null ? 1 : pop(frame, fps, revealFrom + i * stagger);
         const color = rootOnly && p.type !== "root" ? C.ink : PART_COLOR[p.type];
+        const labelOpacity = labelsFrom === null ? s : s * interpolate(frame, [labelsFrom, labelsFrom + 8], [0, 1], clamp);
         return (
           // Nhãn nằm tuyệt đối bên dưới để các mảnh luôn liền nhau thành một từ.
           <div key={i} style={{ position: "relative" }}>
@@ -74,7 +78,7 @@ export const WordParts: React.FC<Props> = ({
                     height: 6,
                     borderRadius: 3,
                     background: color,
-                    opacity: s,
+                    opacity: labelOpacity,
                   }}
                 />
                 <span
@@ -88,7 +92,7 @@ export const WordParts: React.FC<Props> = ({
                     fontSize: fontSize * 0.24,
                     color,
                     whiteSpace: "nowrap",
-                    opacity: s,
+                    opacity: labelOpacity,
                   }}
                 >
                   {p.meaning_vi}

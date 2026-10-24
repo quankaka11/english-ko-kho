@@ -14,17 +14,11 @@ from collections import defaultdict
 from datetime import date
 from statistics import median
 
-from common import ROOT
+from common import ROOT, load_formats
 
 METRICS = ROOT / "tracking" / "metrics.csv"
 TOPICS = ROOT / "tracking" / "topics.csv"
-FORMAT_VI = {
-    "root_family": "Gốc từ",
-    "surprising_origin": "Nguồn gốc bất ngờ",
-    "sino_vietnamese": "Hán Việt",
-    "confusing_pair": "Cặp dễ nhầm",
-    "guess_challenge": "Thử thách đoán",
-}
+FORMAT_VI = {k: v["name_vi"] for k, v in load_formats().items()}
 NUMERIC = ["thoi_luong_s", "luot_xem", "tg_xem_tb_s", "pct_xem_het", "pct_giu_chan",
            "thich", "binh_luan", "chia_se", "luu", "follow_moi"]
 # (tên cột, nhãn, số chữ số thập phân)

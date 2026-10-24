@@ -1,0 +1,88 @@
+{
+  "$schema": "../../config/episode.schema.json",
+  "id": "000-demo-sino",
+  "episode": 1,
+  "format": "sino_vietnamese",
+  "status": "draft",
+  "title_vi": "Tập demo kỹ thuật – Hy Lạp ↔ Hán Việt (không đăng)",
+  "hook": {
+    "vo": "Bạn đã biết những từ tiếng Anh này rồi, chỉ là chưa nhận ra thôi.",
+    "on_screen": "Bạn biết sẵn rồi đấy!"
+  },
+  "topic": {
+    "title": "Hy Lạp ↔ Hán Việt",
+    "subtitle_vi": "Hai nền văn minh ghép từ giống nhau",
+    "emoji": "🧩",
+    "vo": "Tiếng Hy Lạp và tiếng Hán ghép từ theo cùng một cách. Xem này."
+  },
+  "words": [
+    {
+      "word": "hydroelectric",
+      "parts": [{ "text": "hydro", "type": "prefix", "meaning_vi": "thủy" }, { "text": "electric", "type": "root", "meaning_vi": "điện" }],
+      "ipa": "/ˌhaɪdroʊɪˈlektrɪk/",
+      "pos": "adj.",
+      "meaning_vi": "thủy điện",
+      "han_viet": "thủy điện",
+      "vo": "[en:hydro] là nước, tức là thủy. [en:electric] là điện. Ghép lại: thủy điện.",
+      "example_en": "Vietnam has many hydroelectric dams.",
+      "emoji": "💧",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "thermometer",
+      "parts": [{ "text": "thermo", "type": "prefix", "meaning_vi": "nhiệt" }, { "text": "meter", "type": "root", "meaning_vi": "kế" }],
+      "ipa": "/θərˈmɑːmɪtər/",
+      "pos": "n.",
+      "meaning_vi": "nhiệt kế",
+      "han_viet": "nhiệt kế",
+      "vo": "[en:thermo] là nóng, tức là nhiệt. [en:meter] là cái đo, tức là kế. Ghép lại: nhiệt kế.",
+      "example_en": "The thermometer shows thirty degrees.",
+      "emoji": "🌡️",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "microscope",
+      "parts": [{ "text": "micro", "type": "prefix", "meaning_vi": "vi" }, { "text": "scope", "type": "root", "meaning_vi": "kính" }],
+      "ipa": "/ˈmaɪkrəskoʊp/",
+      "pos": "n.",
+      "meaning_vi": "kính hiển vi",
+      "han_viet": "kính hiển vi",
+      "vo": "[en:micro] là rất nhỏ, tức là vi. [en:scope] là dụng cụ để nhìn, tức là kính. Ghép lại: kính hiển vi.",
+      "example_en": "Look at the cell under a microscope.",
+      "emoji": "🔬",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "biology",
+      "parts": [{ "text": "bio", "type": "prefix", "meaning_vi": "sinh" }, { "text": "logy", "type": "root", "meaning_vi": "học" }],
+      "ipa": "/baɪˈɑːlədʒi/",
+      "pos": "n.",
+      "meaning_vi": "sinh học",
+      "han_viet": "sinh học",
+      "vo": "[en:bio] là sự sống, tức là sinh. [en:logy] là môn học. Ghép lại: sinh học.",
+      "example_en": "Biology is my favorite subject.",
+      "emoji": "🧬",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    }
+  ],
+  "summary": { "vo": "Chụp màn hình lại để ôn nhé." },
+  "quiz": {
+    "word": "hydrology",
+    "parts": [{ "text": "hydro", "type": "prefix" }, { "text": "logy", "type": "root" }],
+    "hint_vi": "HYDRO là thủy, LOGY là học",
+    "vo": "[en:hydro] là thủy, [en:logy] là học. Từ này tiếng Việt gọi là gì? Trả lời ở bình luận nhé!",
+    "answer_vi": "thủy văn học (môn học về nước trên Trái Đất)"
+  },
+  "lexicon": {},
+  "music": null,
+  "publish": {
+    "youtube_title": "Demo kỹ thuật: Hy Lạp và Hán Việt #Shorts",
+    "tiktok_caption": "Demo kỹ thuật – không đăng",
+    "hashtags": ["#englishkokho", "#hoctienganh", "#tuvungtienganh", "#learnenglish"],
+    "pinned_comment": "🤔 Từ cuối video tiếng Việt gọi là gì? Bình luận đáp án nhé, 24h nữa mình trả lời ngay dưới đây! 👇"
+  }
+}

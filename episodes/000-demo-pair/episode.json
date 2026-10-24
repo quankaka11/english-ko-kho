@@ -1,0 +1,67 @@
+{
+  "$schema": "../../config/episode.schema.json",
+  "id": "000-demo-pair",
+  "episode": 1,
+  "format": "confusing_pair",
+  "status": "draft",
+  "title_vi": "Tập demo kỹ thuật – lose hay loose (không đăng)",
+  "hook": {
+    "vo": "Rất nhiều người viết sai hai từ này. Bạn có nằm trong số đó không?",
+    "on_screen": "1 chữ o, 2 nghĩa"
+  },
+  "topic": {
+    "title": "lose hay loose?",
+    "subtitle_vi": "Thừa một chữ o là sai nghĩa",
+    "emoji": "🤯",
+    "vo": "Hai từ này chỉ khác nhau một chữ o, nhưng nghĩa khác hẳn."
+  },
+  "words": [
+    {
+      "word": "lose",
+      "parts": [{ "text": "l", "type": "plain" }, { "text": "o", "type": "prefix", "meaning_vi": "1 chữ o" }, { "text": "se", "type": "plain" }],
+      "ipa": "/luːz/",
+      "pos": "v.",
+      "meaning_vi": "mất, thua",
+      "note_vi": "âm cuối đọc là /z/",
+      "vo": "[en:lose] có một chữ o, âm cuối là [en:z]. Nghĩa là mất, hoặc thua.",
+      "example_en": "Don't lose your keys again.",
+      "emoji": "🔑",
+      "sources": ["cambridge", "oxford"],
+      "verified": false
+    },
+    {
+      "word": "loose",
+      "parts": [{ "text": "l", "type": "plain" }, { "text": "oo", "type": "prefix", "meaning_vi": "2 chữ o" }, { "text": "se", "type": "plain" }],
+      "ipa": "/luːs/",
+      "pos": "adj.",
+      "meaning_vi": "lỏng, rộng",
+      "note_vi": "âm cuối đọc là /s/",
+      "vo": "[en:loose] có hai chữ o, âm cuối là [en:s]. Nghĩa là lỏng, không chặt.",
+      "example_en": "My shoelace is loose.",
+      "emoji": "👟",
+      "mnemonic": true,
+      "sources": ["cambridge", "oxford"],
+      "verified": false
+    }
+  ],
+  "summary": {
+    "vo": "Nhớ nhé: thừa một chữ o là lỏng lẻo.",
+    "tip_vi": "loose thừa một chữ o, lỏng lẻo như dây giày thừa một vòng"
+  },
+  "quiz": {
+    "sentence_en": "These jeans are too ___ for me.",
+    "options": ["lose", "loose"],
+    "hint_vi": "quần rộng thùng thình",
+    "vo": "Điền từ nào vào chỗ trống? Trả lời ở bình luận nhé!",
+    "answer_vi": "loose (quần quá rộng)"
+  },
+  "disclaimer_vi": "Mẹo nhớ giúp bạn nhớ nhanh, không phải lịch sử từ.",
+  "lexicon": {},
+  "music": null,
+  "publish": {
+    "youtube_title": "Demo kỹ thuật: lose hay loose #Shorts",
+    "tiktok_caption": "Demo kỹ thuật – không đăng",
+    "hashtags": ["#englishkokho", "#hoctienganh", "#tuvungtienganh", "#learnenglish"],
+    "pinned_comment": "🤔 Bạn điền từ nào vào chỗ trống? Bình luận đáp án nhé, 24h nữa mình trả lời ngay dưới đây! 👇"
+  }
+}

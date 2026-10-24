@@ -14,17 +14,10 @@ import json
 import subprocess
 from collections import Counter, defaultdict
 
-from common import ROOT
+from common import ROOT, load_formats
 
 TOPICS = ROOT / "tracking" / "topics.csv"
-
-FORMAT_VI = {
-    "root_family": "Gốc từ",
-    "surprising_origin": "Nguồn gốc bất ngờ",
-    "sino_vietnamese": "Hán Việt",
-    "confusing_pair": "Cặp dễ nhầm",
-    "guess_challenge": "Thử thách đoán",
-}
+FORMAT_VI = {k: v["name_vi"] for k, v in load_formats().items()}
 STATUS_VI = {
     "draft": "nháp, chờ kiểm chứng",
     "verified": "đã kiểm chứng, chờ dựng",

@@ -14,11 +14,15 @@ import { SpeechBubble } from "./components/SpeechBubble";
 import { Watermark } from "./components/Watermark";
 import { LAYOUT } from "./layout";
 import { Hook } from "./scenes/Hook";
+import { ChallengeCard } from "./scenes/ChallengeCard";
 import { Intro } from "./scenes/Intro";
+import { OriginCard } from "./scenes/OriginCard";
 import { Outro } from "./scenes/Outro";
 import { Quiz } from "./scenes/Quiz";
 import { RootIntro } from "./scenes/RootIntro";
+import { SinoCard } from "./scenes/SinoCard";
 import { Summary } from "./scenes/Summary";
+import { TopicIntro } from "./scenes/TopicIntro";
 import { WordCard } from "./scenes/WordCard";
 import type { Caption, EpisodeProps, Scene, SceneType } from "./types";
 
@@ -38,7 +42,11 @@ export const calculateEpisodeMetadata: CalculateMetadataFunction<EpisodeVideoPro
 const CAPI_POSE: Partial<Record<SceneType, CapiPose>> = {
   hook: "idle",
   root: "point",
+  topic: "point",
   word: "point",
+  origin: "point",
+  sino: "point",
+  challenge: "idle",
   summary: "cheer",
   quiz: "idle",
 };
@@ -55,8 +63,16 @@ const SceneBody: React.FC<{ scene: Scene; data: EpisodeProps; talking: boolean }
       return <Intro />;
     case "root":
       return <RootIntro scene={scene} episode={ep} />;
+    case "topic":
+      return <TopicIntro scene={scene} episode={ep} />;
     case "word":
       return <WordCard scene={scene} episode={ep} />;
+    case "origin":
+      return <OriginCard scene={scene} episode={ep} />;
+    case "sino":
+      return <SinoCard scene={scene} episode={ep} />;
+    case "challenge":
+      return <ChallengeCard scene={scene} episode={ep} />;
     case "summary":
       return <Summary episode={ep} />;
     case "quiz":

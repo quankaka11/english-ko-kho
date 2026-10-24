@@ -13,7 +13,7 @@ import sys
 
 from jsonschema import Draft202012Validator
 
-from common import ROOT, load_brand, load_episode
+from common import ROOT, load_brand, load_episode, load_formats
 import vo
 
 
@@ -34,7 +34,12 @@ def check(ep: dict, brand: dict) -> tuple[list[str], list[str]]:
         if joined.lower() != word.lower():
             errors.append(f"{label}: ghép parts = '{joined}' khác từ '{word}'")
 
-    vos: list[tuple[str, str]] = [("hook", ep["hook"]["vo"]), ("root", ep["root"]["vo"])]
+    fmt_key = ep["format"]
+    fmt = load_formats()[fmt_key]
+    intro = ("root", ep["root"]["vo"]) if "root" in ep else ("topic", ep["topic"]["vo"])
+    vos: list[tuple[str, str]] = [("hook", ep["hook"]["vo"]), intro]
+    if fmt_key == "root_family" and "topic" in ep:
+        warns.append("root_family dùng root, phần topic sẽ bị bỏ qua")
     seen = set()
     for i, w in enumerate(ep["words"], 1):
         label = f"words[{i}] {w['word']}"
@@ -42,8 +47,15 @@ def check(ep: dict, brand: dict) -> tuple[list[str], list[str]]:
             errors.append(f"{label}: trùng từ")
         seen.add(w["word"].lower())
         check_parts(label, w["word"], w["parts"])
-        if not any(p["type"] == "root" for p in w["parts"]):
+        if fmt_key == "root_family" and not any(p["type"] == "root" for p in w["parts"]):
             warns.append(f"{label}: không có mảnh type=root để tô màu gốc")
+        if fmt_key == "sino_vietnamese":
+            for p in w["parts"]:
+                if p.get("meaning_vi") and p["meaning_vi"].lower() not in w["han_viet"].lower():
+                    warns.append(f"{label}: chữ Hán Việt '{p['meaning_vi']}' của mảnh '{p['text']}' "
+                                 f"không có trong '{w['han_viet']}' nên không tô màu được")
+        if fmt_key == "guess_challenge" and not w.get("from_vi"):
+            warns.append(f"{label}: nên có from_vi (đã học ở tập nào) để nối tập")
         stem = w["word"].lower()[: max(4, len(w["word"]) - 3)]
         if stem not in w["example_en"].lower():
             warns.append(f"{label}: câu ví dụ có vẻ không chứa từ")
@@ -52,11 +64,16 @@ def check(ep: dict, brand: dict) -> tuple[list[str], list[str]]:
         if not w["verified"]:
             warns.append(f"{label}: chưa được người kiểm chứng (verified=false)")
         vos.append((label, w["vo"]))
-    check_parts("quiz", ep["quiz"]["word"], ep["quiz"]["parts"])
-    vos += [("summary", ep["summary"]["vo"]), ("quiz", ep["quiz"]["vo"])]
+    quiz = ep["quiz"]
+    if quiz.get("word"):
+        check_parts("quiz", quiz["word"], quiz["parts"])
+    elif not any(o.lower() in quiz["answer_vi"].lower() for o in quiz["options"]):
+        warns.append("quiz.answer_vi nên chứa đúng một lựa chọn trong options")
+    vos += [("summary", ep["summary"]["vo"]), ("quiz", quiz["vo"])]
 
-    if not 6 <= len(ep["words"]) <= 8 and ep["format"] == "root_family":
-        warns.append(f"root_family nên có 6–8 từ (đang có {len(ep['words'])})")
+    lo, hi = fmt["words"]
+    if not lo <= len(ep["words"]) <= hi:
+        warns.append(f"{fmt_key} nên có {lo}–{hi} từ (đang có {len(ep['words'])})")
     if any(w.get("mnemonic") for w in ep["words"]) and not ep.get("disclaimer_vi"):
         warns.append("có từ đánh dấu mnemonic nhưng thiếu disclaimer_vi")
     if ep["status"] in ("verified", "rendered", "published") and not all(w["verified"] for w in ep["words"]):
@@ -67,7 +84,7 @@ def check(ep: dict, brand: dict) -> tuple[list[str], list[str]]:
             warns.append(f"vo {label}: {issue}")
 
     total = sum(vo.estimate_seconds(t) for _, t in vos)
-    total += len(ep["words"]) * 3.2  # từ tiếng Anh đọc chậm + câu ví dụ
+    total += len(ep["words"]) * (3.2 + fmt.get("think_sec", 0))  # từ đọc chậm + câu ví dụ (+ lúc chờ đoán)
     if brand["intro"]["enabled"]:
         total += brand["intro"]["duration_sec"]
     if brand["outro"]["enabled"]:

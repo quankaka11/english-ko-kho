@@ -34,18 +34,21 @@ def plan_clips(ep: dict, brand: dict) -> list[dict]:
     clips = [{"id": "hook", "text": ep["hook"]["vo"]}]
     if brand["intro"]["enabled"] and brand["intro"].get("vo"):
         clips.append({"id": "intro", "text": brand["intro"]["vo"]})
-    clips.append({"id": "root", "text": ep["root"]["vo"]})
+    # root_family giới thiệu gốc từ; các dạng khác giới thiệu chủ đề (topic).
+    if "root" in ep:
+        clips.append({"id": "root", "text": ep["root"]["vo"]})
+    else:
+        clips.append({"id": "topic", "text": ep["topic"]["vo"]})
     for i, w in enumerate(ep["words"], 1):
         clips += [
             {"id": f"w{i}_word", "text": f"[en:{w['word']}]", "kind": "word"},
             {"id": f"w{i}_vo", "text": w["vo"]},
             {"id": f"w{i}_ex", "text": f"[en:{w['example_en']}]"},
         ]
-    clips += [
-        {"id": "summary", "text": ep["summary"]["vo"]},
-        {"id": "quiz_word", "text": f"[en:{ep['quiz']['word']}]", "kind": "word"},
-        {"id": "quiz", "text": ep["quiz"]["vo"]},
-    ]
+    clips.append({"id": "summary", "text": ep["summary"]["vo"]})
+    if ep["quiz"].get("word"):  # câu đố điền từ (sentence_en) không đọc đáp án
+        clips.append({"id": "quiz_word", "text": f"[en:{ep['quiz']['word']}]", "kind": "word"})
+    clips.append({"id": "quiz", "text": ep["quiz"]["vo"]})
     if brand["outro"]["enabled"] and brand["outro"].get("vo"):
         clips.append({"id": "outro", "text": brand["outro"]["vo"]})
     return clips

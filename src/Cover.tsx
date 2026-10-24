@@ -7,10 +7,13 @@ import { KoMark } from "./brand/Logo";
 import { Background } from "./components/Background";
 import { WordParts } from "./components/WordParts";
 import type { EpisodeVideoProps } from "./EpisodeVideo";
+import { headlineOf } from "./formats";
 
 export const Cover: React.FC<EpisodeVideoProps> = ({ data }) => {
   if (!data) return null;
   const ep = data.episode;
+  const head = headlineOf(ep);
+  const headSize = ep.root ? (head.length > 8 ? 200 : 260) : head.length > 18 ? 110 : head.length > 12 ? 130 : 160;
   return (
     <AbsoluteFill style={{ fontFamily: FONT.body, color: C.ink, alignItems: "center" }}>
       <Background />
@@ -22,15 +25,21 @@ export const Cover: React.FC<EpisodeVideoProps> = ({ data }) => {
         style={{
           position: "absolute",
           top: 460,
+          height: 280,
+          width: 980,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
           fontFamily: FONT.display,
           fontWeight: 800,
-          fontSize: ep.root.text.length > 6 ? 200 : 260,
+          fontSize: headSize,
           lineHeight: 1,
           color: C.root,
           textShadow: `10px 12px 0 ${C.ink}`,
         }}
       >
-        -{ep.root.text}-
+        {head}
       </div>
       <div
         style={{

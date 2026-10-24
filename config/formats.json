@@ -1,0 +1,48 @@
+{
+  "root_family": {
+    "name_vi": "Gốc từ",
+    "label": "GỐC TỪ HÔM NAY",
+    "scene": "word",
+    "words": [6, 8],
+    "demo": "000-demo",
+    "summary_title": "📸 Chụp lại để ôn!",
+    "playlist": "Gốc từ tiếng Anh"
+  },
+  "surprising_origin": {
+    "name_vi": "Nguồn gốc bất ngờ",
+    "label": "NGUỒN GỐC BẤT NGỜ",
+    "scene": "origin",
+    "words": [3, 6],
+    "demo": "000-demo-origin",
+    "summary_title": "📸 Chụp lại để kể bạn nghe!",
+    "playlist": "Nguồn gốc bất ngờ của từ tiếng Anh"
+  },
+  "sino_vietnamese": {
+    "name_vi": "Hán Việt",
+    "label": "TIẾNG ANH ↔ HÁN VIỆT",
+    "scene": "sino",
+    "words": [4, 6],
+    "demo": "000-demo-sino",
+    "summary_title": "📸 Chụp lại để ôn!",
+    "playlist": "Tiếng Anh và Hán Việt"
+  },
+  "confusing_pair": {
+    "name_vi": "Cặp dễ nhầm",
+    "label": "CẶP DỄ NHẦM",
+    "scene": "word",
+    "words": [2, 3],
+    "demo": "000-demo-pair",
+    "summary_title": "📸 Phân biệt nhanh",
+    "playlist": "Cặp từ dễ nhầm"
+  },
+  "guess_challenge": {
+    "name_vi": "Thử thách đoán",
+    "label": "THỬ THÁCH ĐOÁN NGHĨA",
+    "scene": "challenge",
+    "words": [3, 6],
+    "think_sec": 3,
+    "demo": "000-demo-guess",
+    "summary_title": "🏆 Bạn đoán đúng mấy từ?",
+    "playlist": "Thử thách đoán nghĩa"
+  }
+}

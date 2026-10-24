@@ -1,0 +1,79 @@
+{
+  "$schema": "../../config/episode.schema.json",
+  "id": "000-demo-guess",
+  "episode": 1,
+  "format": "guess_challenge",
+  "status": "draft",
+  "title_vi": "Tập demo kỹ thuật – thử thách đoán nghĩa (không đăng)",
+  "hook": {
+    "vo": "Chưa học mấy từ này, nhưng bạn vẫn đoán được nghĩa. Thử xem!",
+    "on_screen": "3 giây 1 từ. Đoán đi!"
+  },
+  "topic": {
+    "title": "Bạn đoán được mấy từ?",
+    "subtitle_vi": "Dùng các gốc PORT, SPECT, DICT",
+    "emoji": "🎯",
+    "vo": "Thử thách nhé: mỗi từ có ba giây để đoán. Đếm xem bạn đúng mấy từ."
+  },
+  "words": [
+    {
+      "word": "porter",
+      "parts": [{ "text": "port", "type": "root", "meaning_vi": "mang" }, { "text": "er", "type": "suffix", "meaning_vi": "người" }],
+      "ipa": "/ˈpɔːrtər/",
+      "pos": "n.",
+      "meaning_vi": "người khuân vác",
+      "from_vi": "tập demo · -PORT-",
+      "vo": "[en:port] là mang, [en:er] là người. Người mang đồ: người khuân vác.",
+      "example_en": "The porter carried our bags.",
+      "emoji": "🧳",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "inspector",
+      "parts": [
+        { "text": "in", "type": "prefix", "meaning_vi": "vào trong" },
+        { "text": "spect", "type": "root", "meaning_vi": "nhìn" },
+        { "text": "or", "type": "suffix", "meaning_vi": "người" }
+      ],
+      "ipa": "/ɪnˈspektər/",
+      "pos": "n.",
+      "meaning_vi": "thanh tra viên",
+      "from_vi": "tập 1 · -SPECT-",
+      "vo": "Người nhìn vào bên trong để kiểm tra: thanh tra viên.",
+      "example_en": "The inspector checked every room.",
+      "emoji": "🕵️",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    },
+    {
+      "word": "dictation",
+      "parts": [{ "text": "dict", "type": "root", "meaning_vi": "nói" }, { "text": "ation", "type": "suffix", "meaning_vi": "việc" }],
+      "ipa": "/dɪkˈteɪʃn/",
+      "pos": "n.",
+      "meaning_vi": "bài chính tả",
+      "from_vi": "tập 7 · -DICT-",
+      "vo": "Thầy nói, trò chép lại: bài chính tả.",
+      "example_en": "We had a dictation in class.",
+      "emoji": "📝",
+      "sources": ["etymonline", "cambridge"],
+      "verified": false
+    }
+  ],
+  "summary": { "vo": "Bạn đúng mấy từ? Bình luận số điểm nhé!" },
+  "quiz": {
+    "word": "verdict",
+    "parts": [{ "text": "ver", "type": "prefix" }, { "text": "dict", "type": "root" }],
+    "hint_vi": "VER là sự thật",
+    "vo": "[en:ver] là sự thật. Đoán nghĩa từ này và trả lời ở bình luận nhé!",
+    "answer_vi": "phán quyết (lời tuyên bố sự thật của tòa)"
+  },
+  "lexicon": {},
+  "music": null,
+  "publish": {
+    "youtube_title": "Demo kỹ thuật: thử thách đoán nghĩa #Shorts",
+    "tiktok_caption": "Demo kỹ thuật – không đăng",
+    "hashtags": ["#englishkokho", "#hoctienganh", "#tuvungtienganh", "#learnenglish"],
+    "pinned_comment": "🤔 Bạn đúng mấy từ? Còn từ cuối video nghĩa là gì? Bình luận nhé, 24h nữa mình trả lời! 👇"
+  }
+}
