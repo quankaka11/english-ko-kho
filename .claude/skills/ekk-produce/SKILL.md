@@ -41,6 +41,7 @@ Sau đó mở file png để xem. Hoặc cắt nhiều frame từ bản preview:
 | Logo / Capi | `src/brand/Logo.tsx`, `src/brand/Capi.tsx`, rồi chạy `python scripts/export_brand.py` |
 | Bố cục, vùng an toàn | `src/layout.ts` |
 | Từng cảnh | `src/scenes/*.tsx`; timeline (độ dài tối thiểu mỗi cảnh, SFX) ở `scripts/build_props.py` |
+| Dạng tập | `config/formats.json` (nhãn, số từ, cảnh từng từ, `think_sec` của thử thách đoán, tiêu đề tổng kết, playlist). Cảnh theo dạng: `TopicIntro` (thay `RootIntro` khi không phải gốc từ), `WordCard` (gốc từ, cặp dễ nhầm), `OriginCard`, `SinoCard`, `ChallengeCard`. Thành phần dùng chung ở `src/components/CardParts.tsx`. Sửa template thì dựng lại cả 5 tập mẫu `000-demo*` để kiểm tra |
 | Phụ đề | `src/components/SpeechBubble.tsx` (số chữ mỗi cụm: `voice.caption_words`) |
 
 ## Quy tắc Remotion trong repo này

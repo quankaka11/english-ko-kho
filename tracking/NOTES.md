@@ -8,14 +8,19 @@ Ai làm gì cũng ghi vào đây, kể cả Claude Code. Đọc file này đầu
 
 ## Đang ở đâu
 
-Chuẩn bị thử nghiệm 30 ngày, chưa đăng tập nào. Mới có `001-spect` (nháp, chờ kiểm chứng). Template mới dựng được dạng Gốc từ.
+Chuẩn bị thử nghiệm 30 ngày, chưa đăng tập nào. Mới có `001-spect` (nháp, chờ kiểm chứng). Template đã dựng đủ 5 dạng; mỗi dạng có tập mẫu `episodes/000-demo*`.
+
+**Status đăng bài:** mọi tập dựng bằng `python scripts/build.py <id>` đều tự sinh `out/<id>/post.md`. File này có caption TikTok, tiêu đề + mô tả YouTube Shorts, hashtag, bình luận ghim, đáp án đăng sau 24h, cài đặt nhãn AI, playlist theo dạng tập và checklist (kể cả bước điền `ngay_dang` và lấy số liệu sau 7 ngày). Chỉ sửa nội dung status trong `publish` của `episode.json`, rồi chạy lại `python scripts/make_post.py <id>`.
 
 ## Việc tiếp theo
 
 Nhận việc bằng cách ghi tên vào `[ ]`, ví dụ `[ ] (DanNK) …`. Xong thì đánh `[x]` và ghi một dòng vào Nhật ký.
 
 - [ ] Kiểm chứng 8 từ của `001-spect` (Etymonline + Cambridge), đặt `verified: true`, rồi dựng bản cuối
-- [ ] **Chặn 15 slot chẵn:** làm template (và nới schema nếu cần) cho `surprising_origin`, `sino_vietnamese`, `confusing_pair`, `guess_challenge`. Nên làm trước 2 dạng đầu, vì slot 2 và 4 cần trước
+- [x] Template cho `surprising_origin`, `sino_vietnamese`, `confusing_pair`, `guess_challenge` (2026-10-24)
+- [ ] Xem 4 bản preview `out/000-demo-*/000-demo-*.preview.mp4` và góp ý bố cục (bản test dùng giọng dự phòng edge-tts)
+- [ ] Khởi động lại ZipVoice và cập nhật `ZIPVOICE_URL` trong `.env`: ngày 24/10 tunnel không còn phân giải được
+- [ ] Chốt lại câu outro và `follow_line_vi` trong `config/brand.json`: hiện đang nói "mỗi ngày học thêm một gốc từ", nhưng một nửa số tập không phải dạng gốc từ
 - [ ] Soạn slot 2–7 (nhận trong `topics.csv` trước khi làm)
 - [ ] Có ít nhất 3 tập `rendered` (tốt nhất 5–7) trước khi đăng ngày 1
 - [ ] Chọn giờ đăng cố định trong khung 19:00–21:00, ghi vào Quyết định
@@ -33,6 +38,7 @@ Mới nhất ở trên. Ghi ngày, ai quyết, quyết gì, vì sao.
 
 Mới nhất ở trên. Dạng: `- YYYY-MM-DD (ai): làm gì — kết quả / lưu ý`.
 
+- 2026-10-24 (Claude): Dựng template cho 4 dạng còn lại: `config/formats.json`, cảnh `TopicIntro`/`OriginCard`/`SinoCard`/`ChallengeCard`, câu đố điền từ, `post.md` theo từng dạng, 4 tập mẫu `000-demo-*`. Đã render preview cả 4 bằng giọng dự phòng vì ZipVoice tắt.
 - 2026-10-24 (Claude): Tạo bộ nhớ chung (`tracking/`), danh sách 30 chủ đề, `scripts/status.py`, `scripts/report.py` và `documents/Experiment_30.md`.
 
 ## Bài học

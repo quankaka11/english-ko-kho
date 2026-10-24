@@ -15,7 +15,7 @@ Trước khi viết: đọc `documents/Content_Plan.md` (mục 2 format, mục 3
    git checkout master && git pull && git checkout -b episode/<id>
    ```
    Phần "TỪ LẶP" của `status.py` cho biết từ nào đã/sẽ xuất hiện ở slot khác. Đọc tập cũ bằng `git show episode/<id-cũ>:episodes/<id-cũ>/episode.json`, rồi nhắc "bạn đã gặp ở tập N" (`series_note_vi`).
-2. **Tạo file** từ mẫu: copy `config/episode.template.json` thành `episodes/<id>/episode.json`. Schema đầy đủ có mô tả từng trường ở `config/episode.schema.json`.
+2. **Tạo file** từ mẫu đúng dạng tập (cột `demo` trong `config/formats.json`): Gốc từ dùng `config/episode.template.json`; dạng khác copy tập mẫu `episodes/000-demo-origin|sino|pair|guess/episode.json` rồi thay nội dung. Đặt `id`, `episode`, `status: "draft"`, mọi từ `verified: false`. Schema đầy đủ có mô tả từng trường ở `config/episode.schema.json`.
 3. **Soạn nội dung** theo các quy tắc bên dưới. Để `status: "draft"` và mọi từ `verified: false`. **Không bao giờ** tự đặt `verified: true`: bước kiểm chứng là việc của người (đó cũng là lúc họ học).
 4. **Kiểm tra**: `python scripts/validate_episode.py <id>`. Sửa hết lỗi ✗; còn cảnh báo `verified=false` là bình thường ở bản nháp.
 5. **Nghe thử giọng** (cần server TTS): `python scripts/make_audio.py <id> --asr`. Câu nào ASR dưới 80% thì nghe lại và sửa VO hoặc thêm `lexicon`.
@@ -29,7 +29,19 @@ Trước khi viết: đọc `documents/Content_Plan.md` (mục 2 format, mục 3
 - Câu ví dụ do mình tự viết, ngắn (≤ 8 từ), phải chứa đúng từ đó (cho phép chia động từ hoặc số nhiều). Không chép câu ví dụ của từ điển.
 - `meaning_vi` ≤ 18 ký tự để hiển thị to; nghĩa dài để vào VO.
 - `hook.on_screen` ≤ 22 ký tự. Hook 3 giây đầu phải gây tò mò, ví dụ "Biết 1 mảnh này, hiểu luôn 8 từ".
-- Dạng tập (`format`) theo cột `dang` của slot trong `tracking/topics.csv`: slot lẻ là Gốc từ, slot chẵn xoay 4 dạng khác (`documents/Experiment_30.md` mục 2), để tránh bị YouTube xếp vào "nội dung lặp lại". Hiện template mới dựng sẵn dạng `root_family`.
+- Dạng tập (`format`) theo cột `dang` của slot trong `tracking/topics.csv`: slot lẻ là Gốc từ, slot chẵn xoay 4 dạng khác (`documents/Experiment_30.md` mục 2), để tránh bị YouTube xếp vào "nội dung lặp lại".
+
+## Từng dạng tập
+
+Số từ nên có nằm ở `config/formats.json` → `words`. Mọi dạng đều có hook, `words` (mỗi từ đủ IPA, nghĩa, VO, câu ví dụ, nguồn, `verified`), tổng kết, câu đố và phần đăng bài.
+
+| Dạng | Cảnh giới thiệu | Trường riêng | Lưu ý |
+| --- | --- | --- | --- |
+| `root_family` Gốc từ | `root` | – | 6–8 từ thực sự cùng gốc |
+| `surprising_origin` Nguồn gốc bất ngờ | `topic` | mỗi từ có `origin_vi` (≤ 40 ký tự, ví dụ `Ý: quaranta = bốn mươi`); từ đổi nghĩa thêm `then_vi` (nghĩa xưa) để hiện cảnh Xưa → Nay | Chỉ kể nguồn gốc mà Etymonline/từ điển lớn ghi nhận. Chuyện còn tranh cãi thì nói rõ trong VO và `answer_vi` |
+| `sino_vietnamese` Hán Việt | `topic` | mỗi từ có `han_viet`; `meaning_vi` của từng mảnh là **chữ Hán Việt** của mảnh đó (bio → `sinh`) để template tô cùng màu | Chữ của mảnh phải nằm trong `han_viet` (validator cảnh báo nếu lệch). Đối chiếu nghĩa Hán Việt bằng từ điển Hán Việt |
+| `confusing_pair` Cặp dễ nhầm | `topic` | `summary.tip_vi` (bắt buộc: mẹo phân biệt); câu đố dùng `quiz.sentence_en` có `___` + `quiz.options` thay cho `word`/`parts` | 2–3 từ. `parts` tô phần khác nhau giữa các từ (ví dụ chữ `o`/`oo`). Mẹo nhớ thì đặt `mnemonic: true` + `disclaimer_vi` |
+| `guess_challenge` Thử thách đoán | `topic` | mỗi từ có `from_vi` (đã học ở tập nào) | Từ mới, ghép từ các gốc **đã đăng**. Nghĩa bị giấu trong `think_sec` giây có đồng hồ đếm ngược, nên VO giải thích sau đó, không nói nghĩa trước |
 
 ## Viết lời đọc (VO) cho TTS
 

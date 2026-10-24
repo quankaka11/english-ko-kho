@@ -41,7 +41,7 @@ python scripts/report.py             # so sánh dạng tập từ tracking/metri
 
 | Nhánh | Chứa | Không chứa |
 | --- | --- | --- |
-| `master` | Mọi thứ dùng chung: `src/`, `scripts/`, `config/`, `brand/`, `public/sfx`, `tracking/`, skills, docs, tập test `episodes/000-demo` | Nội dung tập thật |
+| `master` | Mọi thứ dùng chung: `src/`, `scripts/`, `config/`, `brand/`, `public/sfx`, `tracking/`, skills, docs, tập mẫu `episodes/000-demo*` | Nội dung tập thật |
 | `episode/<id>` (ví dụ `episode/001-spect`) | Chỉ `episodes/<id>/` của tập đó | File dùng chung |
 
 - Tập mới: `git checkout master && git pull && git checkout -b episode/<id>`.
@@ -55,8 +55,8 @@ python scripts/report.py             # so sánh dạng tập từ tracking/metri
 ## Cấu trúc
 
 ```
-config/      brand.json (thương hiệu), episode.schema.json, episode.template.json
-episodes/    <id>/episode.json – nguồn nội dung; trên master chỉ có 000-demo, tập thật nằm ở nhánh episode/<id>
+config/      brand.json (thương hiệu), formats.json (5 dạng tập), episode.schema.json, episode.template.json
+episodes/    <id>/episode.json – nguồn nội dung; trên master chỉ có tập mẫu 000-demo* (mỗi dạng một tập), tập thật nằm ở nhánh episode/<id>
 scripts/     pipeline Python: validate, make_audio (tts.py, vo.py), build_props, build, make_post, make_sfx, export_brand, status, report
 tracking/    bộ nhớ chung: NOTES.md, topics.csv (30 chủ đề), metrics.csv (số liệu 7 ngày sau đăng)
 src/         Remotion: EpisodeVideo, Cover, scenes/, components/, brand/ (Logo, Capi)

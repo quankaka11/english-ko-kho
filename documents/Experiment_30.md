@@ -43,7 +43,7 @@ Sửa template giữa chừng (ví dụ đổi hook) thì ghi vào `NOTES.md` �
 ## 4. Nhịp sản xuất
 
 - **Trước ngày 1:** có ít nhất 3 tập đã dựng (status `rendered`), tốt nhất là 5–7. `status.py` báo số tập trong vùng đệm.
-- **Việc cần làm trước:** template hiện mới dựng được dạng Gốc từ. 15 slot chẵn cần template cho 4 dạng còn lại; schema `episode.json` có thể cũng phải nới cho các dạng này. Đây là việc chặn lớn nhất, đã có trong `NOTES.md` → Việc tiếp theo.
+- **Template:** đã dựng đủ 5 dạng (từ 24/10/2026). Mỗi dạng có một tập mẫu `episodes/000-demo*` để copy khi soạn. Trường riêng của từng dạng ghi ở skill `ekk-episode` → "Từng dạng tập".
 - **Làm theo lô:** mỗi buổi soạn 3–4 tập, lần lượt từng tập một: soạn, kiểm chứng, dựng.
 - **Hết vùng đệm thì nghỉ một ngày chứ không bỏ qua kiểm chứng.** Không bao giờ đăng tập có từ `verified: false`.
 - **Nhận việc trước khi làm:** điền `nguoi_lam` (và `id` nếu đã đặt) vào `topics.csv`, commit lên `master` rồi push, để người khác không làm trùng.
